@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Corsa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            height: 300px;
+            position: relative;
+        }
+
+        .crossbar {
+            width: 100%;
+            height: 20px;
+            background-color: #ddd;
+            margin-bottom: 30px;
+            /* Distanza tra le crossbar */
+        }
+
+        .racer {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+        }
+
+        #winner {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Corsa tra 3 Crossbar!</h1>
+    <div class="container">
+        <div class="crossbar" id="bar1">
+            <div class="racer" id="racer1"></div>
+        </div>
+        <div class="crossbar" id="bar2">
+            <div class="racer" id="racer2"></div>
+        </div>
+        <div class="crossbar" id="bar3">
+            <div class="racer" id="racer3"></div>
+        </div>
+    </div>
+
+    <button onclick="startRace()">Inizia la Corsa!</button>
+    <div id="winner"></div>
+
+    <script>
+        function startRace() {
+            // Resetta la posizione iniziale dei corridori
+            document.getElementById('racer1').style.width = '0%';
+            document.getElementById('racer2').style.width = '0%';
+            document.getElementById('racer3').style.width = '0%';
+            document.getElementById('winner').innerHTML = '';
+
+            // Inizia la corsa
+            let racer1Progress = 0;
+            let racer2Progress = 0;
+            let racer3Progress = 0;
+
+            // Variabile per fermare la corsa quando qualcuno vince
+            let raceOver = false;
+
+            let interval1 = setInterval(function () {
+                if (raceOver) return;  // Fermiamo la corsa se è già finita
+                racer1Progress += Math.random() * 2; // Velocità casuale per il primo corridore
+                document.getElementById('racer1').style.width = racer1Progress + '%';
+                if (racer1Progress >= 100) {
+                    clearInterval(interval1);
+                    checkWinner('1');
+                    raceOver = true;  // La corsa è finita
+                }
+            }, 50);
+
+            let interval2 = setInterval(function () {
+                if (raceOver) return;  // Fermiamo la corsa se è già finita
+                racer2Progress += Math.random() * 2; // Velocità casuale per il secondo corridore
+                document.getElementById('racer2').style.width = racer2Progress + '%';
+                if (racer2Progress >= 100) {
+                    clearInterval(interval2);
+                    checkWinner('2');
+                    raceOver = true;  // La corsa è finita
+                }
+            }, 50);
+
+            let interval3 = setInterval(function () {
+                if (raceOver) return;  // Fermiamo la corsa se è già finita
+                racer3Progress += Math.random() * 2; // Velocità casuale per il terzo corridore
+                document.getElementById('racer3').style.width = racer3Progress + '%';
+                if (racer3Progress >= 100) {
+                    clearInterval(interval3);
+                    checkWinner('3');
+                    raceOver = true;  // La corsa è finita
+                }
+            }, 50);
+
+            function checkWinner(winner) {
+                // Determina il vincitore e aggiorna il messaggio
+                let winnerText = '';
+                if (winner === '1') winnerText = 'Crossbar 1 ha vinto!';
+                if (winner === '2') winnerText = 'Crossbar 2 ha vinto!';
+                if (winner === '3') winnerText = 'Crossbar 3 ha vinto!';
+
+                document.getElementById('winner').innerHTML = winnerText;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
