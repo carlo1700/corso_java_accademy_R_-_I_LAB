@@ -3,7 +3,7 @@ public class Oggetti {
 
     public static void main(String[] args) {
 
-        Main myObj = new Main();
+        Oggetti myObj = new Oggetti();
         System.out.println(myObj.x);
     }
 }
