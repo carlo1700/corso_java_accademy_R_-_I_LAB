@@ -1,5 +1,5 @@
 public class Chef {
-    private String nome;
+    public String nome;
 
     // Costruttore della classe Chef
     public Chef(String nome) {

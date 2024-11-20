@@ -1,6 +1,6 @@
 public class Piatto {
-    private String tipoCucina;
-    private String[] ingredienti;
+    public String tipoCucina;
+    public String[] ingredienti;
 
     // Costruttore della classe Piatto
     public Piatto(String tipoCucina, String[] ingredienti) {
@@ -34,7 +34,7 @@ public class Piatto {
     }
 
     // Metodo per preparare un piatto italiano
-    private void preparaPiattoItaliano() {
+    public void preparaPiattoItaliano() {
         if (contieneIngrediente("pomodoro")) {
             System.out.println("Piatto preparato: Pasta al Pomodoro");
         } else if (contieneIngrediente("basilico")) {
@@ -45,7 +45,7 @@ public class Piatto {
     }
 
     // Metodo per preparare un piatto giapponese
-    private void preparaPiattoGiapponese() {
+    public void preparaPiattoGiapponese() {
         if (contieneIngrediente("sushi")) {
             System.out.println("Piatto preparato: Sushi");
         } else if (contieneIngrediente("ramen")) {
@@ -56,7 +56,7 @@ public class Piatto {
     }
 
     // Metodo per preparare un piatto messicano
-    private void preparaPiattoMessicano() {
+    public void preparaPiattoMessicano() {
         if (contieneIngrediente("taco")) {
             System.out.println("Piatto preparato: Tacos");
         } else if (contieneIngrediente("guacamole")) {
@@ -67,7 +67,7 @@ public class Piatto {
     }
 
     // Metodo per preparare un piatto cinese
-    private void preparaPiattoCinese() {
+    public void preparaPiattoCinese() {
         if (contieneIngrediente("riso")) {
             System.out.println("Piatto preparato: Riso Fritto");
         } else if (contieneIngrediente("pollo")) {
@@ -78,7 +78,7 @@ public class Piatto {
     }
 
     // Metodo per preparare un piatto indiano
-    private void preparaPiattoIndiano() {
+    public void preparaPiattoIndiano() {
         if (contieneIngrediente("curry")) {
             System.out.println("Piatto preparato: Curry di Pollo");
         } else if (contieneIngrediente("naan")) {
@@ -89,7 +89,7 @@ public class Piatto {
     }
 
     // Metodo ausiliario per controllare se un ingrediente è presente
-    private boolean contieneIngrediente(String ingrediente) {
+    public boolean contieneIngrediente(String ingrediente) {
         for (String ing : ingredienti) {
             if (ing.equalsIgnoreCase(ingrediente)) {
                 return true;
